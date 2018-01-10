@@ -1,0 +1,64 @@
+{include file="index/common/header.html"}
+<link rel="stylesheet" href="{CSS_PATH}about.css">
+<link rel="stylesheet" href="{CSS_PATH}show.css">
+<div class="banner">
+    <div class="inner">
+        <h2>真正的旅行</h2>
+        <h3>从来不会追溯汹涌的人潮</h3>
+        <p>咨询电话：400 - 000 - 000</p>
+    </div>
+</div>
+</div>
+<div class="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-bg-3 col-md-3 col-sm-3 aboutInner">
+                <div class="item">
+                    <span>|</span>
+                    <div class="guanyu">
+                        <h2>路线</h2>
+                        <h4>route</h4>
+                    </div>
+                    <img src="{IMAGES_PATH}u7ds_qy75.png" alt="">
+                </div>
+                <ul class="navList">
+                    {foreach $cat $v}
+                    <!--<li class="navItem active">
+                        <a href="index.php?a={$v['temp_name']}">{$v['name']}</a>
+                        <span>&gt;</span>
+                    </li>-->
+                    <a href="index.php?a={$v['temp_name']}&id={$v['id']}&catid={$catid}" class="navItem">
+                        {$v['name']}
+                        <span>&gt;</span>
+                    </a>
+                    {/foreach}
+                </ul>
+            </div>
+            <div class="col-lg-9 col-bg-9 col-md-9 col-sm-9 aboutInner">
+                <div class="content">
+                    <div class="top">
+                        <img src="{IMAGES_PATH}kmwg.png" alt="">
+                        <a href="#">首页</a>
+                        <span>&gt;&gt;</span>
+                            {foreach $cat $v}
+                            {if $v['id']==$con['catid']}
+                        <a href="index.php?a={$v['temp_name']}&id={$v['id']}">{$v['name']}</a>
+                            {/if}
+                            {/foreach}
+                        <span>&gt;&gt;</span>
+                        <a href="#">{$con['title']}</a>
+                    </div>
+                    <p class="line"></p>
+                    <h2>{$con['title']}</h2>
+                    <p class="pushtime">发布时间: <span class="time">{$con['time']}</span></p>
+                    <div>
+                        {$con['content']}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{include file="index/common/footer.html"}
+</body>
+</html>

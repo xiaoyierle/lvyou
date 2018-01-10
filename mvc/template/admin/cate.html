@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="renderer" content="webkit">
+<title></title>
+<link rel="stylesheet" href="{CSS_PATH}pintuer.css">
+<link rel="stylesheet" href="{CSS_PATH}admin.css">
+<script src="{JS_PATH}jquery.js"></script>
+<script src="{JS_PATH}pintuer.js"></script>
+</head>
+<body>
+<div class="panel admin-panel">
+  <div class="panel-head"><strong class="icon-reorder"> 内容列表</strong></div>
+  <div class="padding border-bottom">
+    <button type="button" class="button border-yellow" onclick="window.location.href='#add'"><span class="icon-plus-square-o"></span> 添加分类</button>
+  </div>
+  <table class="table table-hover text-center">
+    <tr>
+      <th width="5%">ID</th>
+      <th width="15%">栏目名称</th>
+      <th width="10%">父栏目id</th>
+      <th width="10%">栏目排序</th>
+      <th width="10%">栏目模版</th>
+      <th width="10%">操作</th>
+
+    </tr>
+    {foreach $data $v}
+    <tr>
+      <td>{$v['id']}</td>
+      <td>{$v['name']}</td>
+      <td>{$v['parentid']}</td>
+      <td>{$v['num']}</td>
+      <td>{$v['temp_name']}</td>
+      <td><div class="button-group"> <a class="button border-main" href="index.php?m=admin&f=cat&a=editcat&id={$v['id']}"><span class="icon-edit"></span> 修改</a> <a class="button border-red" href="index.php?m=admin&f=cat&a=delcat&id={$v['id']}" onclick="return del(1,2)"><span class="icon-trash-o"></span> 删除</a> </div></td>
+    </tr>
+    {/foreach}
+  </table>
+</div>
+<script type="text/javascript">
+function del(id,mid){
+	if(confirm("您确定要删除吗?")){			
+		
+	}
+}
+</script>
+<div class="panel admin-panel margin-top">
+  <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>添加内容</strong></div>
+  <div class="body-content">
+    <form method="post" class="form-x" action="index.php?m=admin&f=cat&a=addcat">
+      <div class="form-group">
+        <div class="label">
+          <label>上级分类：</label>
+        </div>
+        <div class="field">
+          <select name="pid" class="input w50">
+            <option value="0" selected>请选择分类</option>
+            {foreach $data $v}
+            <option value="{$v['id']}">{$v['name']}</option>
+            {/foreach}
+          </select>
+          <div class="tips">不选择上级分类默认为一级分类</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="label">
+          <label>栏目名称：</label>
+        </div>
+        <div class="field">
+          <input type="text" class="input w50" name="name" />
+          <div class="tips"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="label">
+          <label>栏目模板：</label>
+        </div>
+        <div class="field">
+          <input type="text" class="input w50" name="temp_name" placeholder="请输入模板名称"/>
+          <div class="tips"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="label">
+          <label>栏目排序：</label>
+        </div>
+        <div class="field">
+          <input type="text" class="input w50" name="num" data-validate="required:请填写内容,number:请填写数字"/>
+          <div class="tips"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="label">
+          <label></label>
+        </div>
+        <div class="field">
+          <button class="button bg-main icon-check-square-o" type="submit"> 提交</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+</body>
+</html>

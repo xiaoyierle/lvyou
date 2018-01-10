@@ -1,0 +1,72 @@
+{include file="index/common/header.html"}
+<link rel="stylesheet" href="{CSS_PATH}about.css">
+<link rel="stylesheet" href="{CSS_PATH}browse.css">
+<link rel="stylesheet" href="{CSS_PATH}booling.css">
+<link rel="stylesheet" href="{CSS_PATH}admin.css">
+    <div class="banner">
+        <div class="inner">
+            <h2>真正的旅行</h2>
+            <h3>从来不会追溯汹涌的人潮</h3>
+            <p>咨询电话：400 - 000 - 000</p>
+        </div>
+    </div>
+</div>
+<div class="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-bg-3 col-md-3 col-sm-3 aboutInner">
+                <div class="item">
+                    <span>|</span>
+                    <div class="guanyu">
+                        <h2>一览</h2>
+                        <h4>browse</h4>
+                    </div>
+                    <img src="{IMAGES_PATH}u7ds_qy75.png" alt="">
+                </div>
+               <ul class="navList">
+                   {if isset($cat)}
+                   {foreach $cat $v}
+                   <a href="index.php?a={$v['temp_name']}&id={$v['id']}&catid={$catid}" class="navItem">
+                       {$v['name']}
+                       <span>&gt;</span>
+                   </a>
+                   {/foreach}
+                   {/if}
+               </ul>
+            </div>
+            <div class="col-lg-9 col-bg-9 col-md-9 col-sm-9 aboutInner">
+                <div class="content">
+                    <div class="top">
+                        <img src="{IMAGES_PATH}kmwg.png" alt="">
+                        <a href="#">首页</a>
+                        <span>&gt;&gt;</span>
+                        {if isset($catname)}
+                        <a href="index.php?a={$catname['temp_name']}&id={$catname['id']}&catid={$catid}">{$catname['name']}</a>
+                        {/if}
+                    </div>
+                    <p class="line"></p>
+                    <div class="row">
+                        {if isset({$con})}
+                        {foreach $con $v}
+                        <div class="col-sm-6 outBox">
+                            <a href="index.php?a=showRoute&id={$v['id']}&catid={$catid}" class="outer">
+                                <img src="{$v['thumb']}" alt="">
+                            </a>
+                            <h3><a href="">{$v['title']}</a></h3>
+                            <p class="time">{$v['time']}</p>
+                        </div>
+                        {/foreach}
+                        {/if}
+
+                    </div>
+                    <div class="pagelist">
+                    {$page}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{include file="index/common/footer.html"}
+</body>
+</html>

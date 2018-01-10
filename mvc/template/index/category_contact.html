@@ -1,0 +1,83 @@
+{include file="index/common/header.html"}
+<link rel="stylesheet" href="{CSS_PATH}about.css">
+<link rel="stylesheet" href="{CSS_PATH}contact.css">
+<!--<script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>-->
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=HR2EhMYjznGPOdR4LzX3keKABcohof1h"></script>
+    <div class="banner">
+        <div class="inner">
+            <h2>真正的旅行</h2>
+            <h3>从来不会追溯汹涌的人潮</h3>
+            <p>咨询电话：400 - 000 - 000</p>
+        </div>
+    </div>
+</div>
+
+<div class="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-bg-3 col-md-3 col-sm-3 aboutInner">
+                <div class="item">
+                    <span>|</span>
+                    <div class="guanyu">
+                        <h2>联系</h2>
+                        <h4>contact</h4>
+                    </div>
+                    <img src="{IMAGES_PATH}u7ds_qy75.png" alt="">
+                </div>
+                <ul class="navList">
+                    {if isset($cat)}
+                    {foreach $cat $v}
+                    <a href="index.php?a={$v['temp_name']}&id={$v['id']}" class="navItem">
+                        {$v['name']}
+                        <span>&gt;</span>
+                    </a>
+                    {/foreach}
+                    {/if}
+                </ul>
+            </div>
+            <div class="col-lg-9 col-bg-9 col-md-9 col-sm-9 aboutInner">
+                <div class="content">
+                    <div class="top">
+                        <img src="{IMAGES_PATH}kmwg.png" alt="">
+                        <a href="#">首页</a>
+                        <span>&gt;&gt;</span>
+                        <a href="#">联系</a>
+                    </div>
+                    <p class="line"></p>
+                    <!--<div style="width:770px;height:328px;border:#ccc solid 1px;" id="dituContent"></div>-->
+                    <div id="allmap"></div>
+                    <div class="row">
+                        <div class="col-sm-4 col-center">
+                            <img src="{IMAGES_PATH}qq.jpg" alt="">
+                            <h2>384650553</h2>
+                        </div>
+                        <div class="col-sm-4 col-center">
+                            <img src="{IMAGES_PATH}wb.jpg" alt="">
+                            <h2>lvyou</h2>
+                        </div>
+                        <div class="col-sm-4 col-center">
+                            <img src="{IMAGES_PATH}wx.jpg" alt="">
+                            <h2>lvyou</h2>
+                        </div>
+                        <div class="col-sm-4 col-center">
+                            <img src="{IMAGES_PATH}tel.png" alt="">
+                            <h2>400-0000-0000</h2>
+                        </div>
+                        <div class="col-sm-4 col-center">
+                            <img src="{IMAGES_PATH}eml.png" alt="">
+                            <h2>wangzhengyi000@126.com</h2>
+                        </div>
+                        <div class="col-sm-4 col-center">
+                            <img src="{IMAGES_PATH}adress.png" alt="">
+                            <h2>山西省太原市</h2>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{include file="index/common/footer.html"}
+</body>
+<script src="{JS_PATH}category_contact.js"></script>
+</html>

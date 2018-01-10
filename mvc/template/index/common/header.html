@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{CSS_PATH}index.css">
+    <link rel="stylesheet" href="{CSS_PATH}bootstrap.css">
+    <script src="{JS_PATH}jQuery1.10.2.js"></script>
+</head>
+<style>
+
+</style>
+<body>
+<div class="top">
+    <div class="nav">
+        <div class="container">
+            <div class="container-inner">
+                <img src="{IMAGES_PATH}u7ds_qy75.png" alt="">
+                <div class="logo">
+                    <p class="name">思麦尔旅游</p>
+                    <p class="name1">FuTai Tourism</p>
+                </div>
+                <ul class="navlist">
+                    <!--<li><a href="index.php" class="active">首页</a></li>-->
+                    {foreach $data $v}
+                    <li><a href="index.php?a={$v['temp_name']}&id={$v['id']}" class="{if $catid==$v['id']}active{/if}">{$v['name']}</a></li>
+                   <!-- <ul>
+                        {foreach $data2 as $r}
+                        {if $r['parentid']==$v['id']}
+                            <li>{$r['name']}</li>
+                        {/if}
+                        {/foreach}
+
+                    </ul>-->
+                    {/foreach}
+                </ul>
+                <form action="index.php?a=search" class="nav-input" method="post">
+                <!--<div class="nav-input">-->
+                    <input type="text" placeholder="请输入关键字" name="text">
+                    <input type="submit" value="&#xe61b;">
+                <!--</div>-->
+                </form>
+            </div>
+        </div>
+    </div>

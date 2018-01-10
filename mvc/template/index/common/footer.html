@@ -1,0 +1,23 @@
+<div class="bottom">
+    <img src="{IMAGES_PATH}h0jn.jpg" alt="">
+</div>
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4 col-xs-offset-2">
+                <h3>联系我们</h3>
+                <address>
+                    <strong>电话</strong><br>400-000-xxxx   /  (021)-1234578xxx<br>
+                    <strong>邮箱</strong><br><a href="mailto:#">first.last@example.com</a><br>
+                    <abbr title="Phone">P:</abbr> (123) 456-7890
+                </address>
+            </div>
+            <div class="col-xs-4 col-xs-offset-1">
+                <h3>快速链接</h3>
+                <p class="foot-p">  {foreach $data $v}<a href="index.php?a={$v['temp_name']}&id={$v['id']}" class="col-xs-4">》{$v['name']}</a>{/foreach} </p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
